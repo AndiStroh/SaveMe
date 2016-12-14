@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.claudius.saveme.Login_activity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView12"
+            android:text="@string/willkommensnachricht"
+            android:layout_marginBottom="100dip"
+            android:textAlignment="center"
+            android:textStyle="normal|bold"
+            android:textSize="30sp" />
+
+        <TextView
+            android:text="@string/namelabelbezeichnung"
+            android:textColor="@color/allblack"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameeingabelabel"
+
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_width="314dp"
+
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/nameeingabefeld"
+            android:textSize="18sp" />
+
+        <TextView
+            android:text="Passwort:"
+            android:textColor="@color/allblack"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/passworteingabelabel"
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_width="314dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberPassword"
+            android:ems="10"
+            android:id="@+id/passworteingabefeld"
+            android:onClick="passwortfertig"/>
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

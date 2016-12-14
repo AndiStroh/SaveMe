@@ -19,6 +19,7 @@ public class Login_activity extends AppCompatActivity {
     String username = null;
     int musterpasswort = 1234;
     String musterUser = "John Wall";
+    String tom = "es funktioniert echt gut";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

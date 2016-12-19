@@ -1,5 +1,6 @@
 package com.example.claudius.saveme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -77,6 +78,9 @@ public class Login_activity extends AppCompatActivity {
 
         if(username.equals(musterUser) && passwort == musterpasswort){
             Toast.makeText(Login_activity.this, "Anmeldung erfolgreich", Toast.LENGTH_SHORT).show();
+
+            Intent i = new Intent(this, Create_Activity.class);
+            startActivity(i);
         }
 
     }

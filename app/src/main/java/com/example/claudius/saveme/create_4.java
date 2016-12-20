@@ -1,24 +1,19 @@
 package com.example.claudius.saveme;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link create_4.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link create_4#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class create_4 extends android.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,10 +21,13 @@ public class create_4 extends android.app.Fragment {
     private static final String ARG_PARAM2 = "param2";
     private ActivityCommunicator activityCommunicator;
 
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private View view;
+
+    Create_Activity cA = (Create_Activity) getActivity();
 
     Button favouriteColorRedButton;
     Button favouriteColorGreenButton;
@@ -38,6 +36,10 @@ public class create_4 extends android.app.Fragment {
     String favouriteBand;
     String favouriteflowers;
     String favouriteKindOfFood;
+
+    EditText favBand;
+    EditText favFood;
+    EditText favFlowers;
 
     private OnFragmentInteractionListener mListener;
 
@@ -82,6 +84,7 @@ public class create_4 extends android.app.Fragment {
         favouriteColorRedButton = (Button) view.findViewById(R.id.favouriteColorRedButton);
         favouriteColorRedButton.setOnClickListener(new ButtonColorListener(this));
 
+
         favouriteColorGreenButton = (Button) view.findViewById(R.id.favouriteColorGreenButton);
         favouriteColorGreenButton.setOnClickListener(new ButtonColorListener(this));
 
@@ -91,13 +94,13 @@ public class create_4 extends android.app.Fragment {
         favouriteColorYellowButton = (Button) view.findViewById(R.id.favouriteColorYellowButton);
         favouriteColorYellowButton.setOnClickListener(new ButtonColorListener(this));
 
-        EditText favBand = (EditText) view.findViewById(R.id.favouriteBandEditText);
+        favBand = (EditText) view.findViewById(R.id.favouriteBandEditText);
         favouriteBand = favBand.getText().toString();
-        //favBand.addTextChangedListener(new TextChangeListener(this,favBand.getId()));
-        EditText favFood = (EditText) view.findViewById(R.id.favouriteKindOfFoodEditText);
+
+        favFood = (EditText) view.findViewById(R.id.favouriteKindOfFoodEditText);
         favouriteKindOfFood = favFood.getText().toString();
 
-        EditText favFlowers = (EditText) view.findViewById(R.id.favouriteFlowerEditText);
+        favFlowers = (EditText) view.findViewById(R.id.favouriteFlowerEditText);
         favouriteflowers = favFlowers.getText().toString();
 
         return view;
@@ -125,6 +128,8 @@ public class create_4 extends android.app.Fragment {
         activityCommunicator =(ActivityCommunicator)context;
     }
 
+
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -136,6 +141,21 @@ public class create_4 extends android.app.Fragment {
     public void onStop(){
         super.onStop();
        // activityCommunicator.passusername(prename,TypePreName);
+
+        String sendestring;
+
+        favouriteBand = favBand.getText().toString();
+        favouriteKindOfFood = favFood.getText().toString();
+        favouriteflowers = favFlowers.getText().toString();
+
+
+
+        sendestring = favouriteBand + "/" + favouriteflowers + "--" + favouriteKindOfFood;
+
+        activityCommunicator.passusername(sendestring,cA.getTypefavourites());
     }
+
+
+
 
 }

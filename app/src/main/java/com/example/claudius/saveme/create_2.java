@@ -18,6 +18,7 @@ public class create_2 extends android.app.Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private ActivityCommunicator activityCommunicator;
+    Create_Activity cA = (Create_Activity) getActivity();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -113,6 +114,12 @@ public class create_2 extends android.app.Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void onStop(){
+        super.onStop();
+
+        activityCommunicator.sendDates(birthdayDay,birthdayMonth,cA.getTypeBirthday());
     }
 
 

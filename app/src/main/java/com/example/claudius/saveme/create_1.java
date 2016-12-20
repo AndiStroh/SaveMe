@@ -22,7 +22,10 @@ public class create_1 extends android.app.Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static final int TypePreName = 1;
+
+    private Create_Activity cA = (Create_Activity) getActivity();
+
+
     private ActivityCommunicator activityCommunicator;
     ImageButton imgbutton;
     Bitmap profilepic;
@@ -169,7 +172,7 @@ public class create_1 extends android.app.Fragment {
     @Override
     public void onStop(){
         super.onStop();
-        activityCommunicator.passusername(prename,TypePreName);
+        activityCommunicator.passusername(prename,cA.getTypeUserName());
     }
 
 

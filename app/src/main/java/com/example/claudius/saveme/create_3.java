@@ -1,22 +1,16 @@
 package com.example.claudius.saveme;
 
 import android.content.Context;
+import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link create_3.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link create_3#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class create_3 extends android.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,9 +18,16 @@ public class create_3 extends android.app.Fragment {
     private static final String ARG_PARAM2 = "param2";
     private ActivityCommunicator activityCommunicator;
 
+    Create_Activity cA = (Create_Activity) getActivity();
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private int anniversaryMonth;
+    private int anniversaryDay;
+    DatePicker anniversaryPicker;
+    View view;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +66,23 @@ public class create_3 extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.create_3_fragment, container, false);
+        view =inflater.inflate(R.layout.create_3_fragment, container, false);
+
+        anniversaryPicker = (DatePicker) view.findViewById(R.id.anniversarypicker);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        anniversaryMonth = anniversaryPicker.getMonth();
+        anniversaryDay = anniversaryPicker.getDayOfMonth();
+        anniversaryPicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+
+            @Override
+            public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                anniversaryMonth = anniversaryPicker.getMonth();
+                anniversaryDay = anniversaryPicker.getDayOfMonth();
+            }
+        });
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -93,6 +110,12 @@ public class create_3 extends android.app.Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void onStop(){
+        super.onStop();
+
+        activityCommunicator.sendDates(anniversaryDay,anniversaryMonth,cA.getTypeAnniversary());
     }
 
 

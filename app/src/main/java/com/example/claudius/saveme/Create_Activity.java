@@ -28,11 +28,16 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
     public static final int TypeUserName = 1;
     public static final int TypeBirthday = 2;
     public static final int TypeAnniversary = 3;
+    public static final int Typefavourites = 4;
 
     private int counter = 1;
 
-    Girlfriend girlfriend = new Girlfriend();
+    private Girlfriend girlfriend = new Girlfriend();
     ImageButton buttonLoadImage;
+
+    public Girlfriend getGirlfriend() {
+        return girlfriend;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +146,31 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
                 break;
 
+            case Typefavourites:
+
+                int ersterteiler = someValue.indexOf("/");
+                int zweiterteiler =  someValue.indexOf("--");
+
+                String band = someValue.substring(0,ersterteiler);
+
+                girlfriend.setFavBand(band);
+                Toast.makeText(Create_Activity.this,"Band in GF: "+girlfriend.getFavBand(), Toast.LENGTH_SHORT).show();
+
+
+                String flowers = someValue.substring(ersterteiler+1,zweiterteiler);
+
+                girlfriend.setFavFlowers(flowers);
+
+                Toast.makeText(Create_Activity.this,"Flowers in GF: "+girlfriend.getFavFlowers(), Toast.LENGTH_SHORT).show();
+
+                String food = someValue.substring(zweiterteiler+2,someValue.length());
+
+                girlfriend.setFavKindofFood(food);
+
+                Toast.makeText(Create_Activity.this,"Food in GF: "+ girlfriend.getFavKindofFood(), Toast.LENGTH_SHORT).show();
+
+
+                break;
             default:
 
                 break;
@@ -153,7 +183,28 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
     @Override
     public void sendDates(int Day, int month, int Type) {
 
+        Toast.makeText(Create_Activity.this, "Int Day: "+String.valueOf(Day)+"Int Month: "+String.valueOf(month), Toast.LENGTH_SHORT).show();
+
     }
 
+    public static int getTypeUserName() {
+        return TypeUserName;
+    }
 
+    public static int getTypeBirthday() {
+        return TypeBirthday;
+    }
+
+    public static int getTypeAnniversary() {
+        return TypeAnniversary;
+    }
+
+    public static int getTypefavourites() {
+        return Typefavourites;
+    }
+
+    public void leerlauf(View view){
+
+
+    }
 }

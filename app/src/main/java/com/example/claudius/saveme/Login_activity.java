@@ -54,6 +54,12 @@ public class Login_activity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    /*Methode wird bei onClick der Passwort Tastatur aufgerufen und checkt ob der Benutzername = 'John Wall' und das Passwort
+     = '1234' <- als integer ist. Wenn das der Fall ist, wird die Create Activity durch einen Intent dem keine weiteren
+      Informationen mitgegeben werden aufgerufen.
+     */
+
     public void passwortfertig(View view){
 
 

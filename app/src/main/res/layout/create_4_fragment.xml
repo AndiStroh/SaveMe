@@ -1,0 +1,123 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.claudius.saveme.create_4"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:max="5"
+        android:progress="4" />
+
+    <TextView
+        android:text="@string/preferredColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/favouriteColorLabel"
+        android:textAlignment="center"
+        android:textColor="@color/allblack"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.13">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/favouriteColorRedButton"
+            android:background="@color/red"
+            android:layout_weight="0.21" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/favouriteColorGreenButton"
+            android:background="@color/green"
+            android:layout_weight="0.21" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/favouriteColorBlueButton"
+            android:background="@color/blue"
+            android:layout_weight="0.21" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/favouriteColorYellowButton"
+            android:background="@color/yellow"
+            android:layout_weight="0.21" />
+
+    </LinearLayout>
+
+    <TextView
+        android:text="Lieblingsband"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/favouriteBandlabel"
+        android:textAlignment="center"
+        android:textColor="@color/allblack"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/favouriteBandEditText" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="Lieblingsblumen"
+        android:textColor="@color/allblack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/favouriteFlowerLabel"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/favouriteFlowerEditText" />
+
+    <TextView
+        android:text="Lieblingsessen"
+        android:textColor="@color/allblack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/favouriteKindOfFoodLabel"
+        android:textAlignment="center"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/favouriteKindOfFoodEditText" />
+
+</LinearLayout>
+

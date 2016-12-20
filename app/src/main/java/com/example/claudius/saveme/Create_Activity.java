@@ -1,9 +1,7 @@
 package com.example.claudius.saveme;
 
 import android.app.FragmentManager;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,19 +10,25 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class Create_Activity extends AppCompatActivity implements create_1.OnFragmentInteractionListener, create_2.OnFragmentInteractionListener, ActivityCommunicator{
+/*
+Klasse dient Hauptsächlich der Steuerung der Fragmente. Hat das Interface ActivityCommunicator welches dafür sorgt das die Klassen miteinander
+Kommunizieren können.
+ */
 
-    public static final int maxfragment = 2;
+public class Create_Activity extends AppCompatActivity implements create_1.OnFragmentInteractionListener, create_2.OnFragmentInteractionListener, create_4.OnFragmentInteractionListener, ActivityCommunicator{
+
+    public static final int maxfragment = 4;
     public static final int minfragment = 1;
 
     public static final int fragment1 = 1;
     public static final int fragment2 = 2;
+    public static final int fragment3 = 3;
+    public static final int fragment4 = 4;
 
     public static final int TypeUserName = 1;
     public static final int TypeBirthday = 2;
     public static final int TypeAnniversary = 3;
 
-    private create_1 c1;
     private int counter = 1;
 
     Girlfriend girlfriend = new Girlfriend();
@@ -91,6 +95,17 @@ public class Create_Activity extends AppCompatActivity implements create_1.OnFra
             FragmentTransaction fragmentTransaction = manager.beginTransaction();
             String tag = create_2.class.getSimpleName();
             fragmentTransaction.replace(R.id.fragment_holder, new create_2(), tag);
+            fragmentTransaction.addToBackStack(tag);
+            fragmentTransaction.commit();
+
+        }
+
+        if(counter == fragment4) {
+
+            FragmentManager manager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = manager.beginTransaction();
+            String tag = create_2.class.getSimpleName();
+            fragmentTransaction.replace(R.id.fragment_holder, new create_4(), tag);
             fragmentTransaction.addToBackStack(tag);
             fragmentTransaction.commit();
 

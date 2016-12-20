@@ -181,10 +181,26 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
     }
 
     @Override
-    public void sendDates(int Day, int month, int Type) {
+    public void sendDates(int day, int month, int year, int Type) {
 
-        Toast.makeText(Create_Activity.this, "Int Day: "+String.valueOf(Day)+"Int Month: "+String.valueOf(month), Toast.LENGTH_SHORT).show();
+        switch(Type){
 
+            case TypeBirthday:
+
+                girlfriend.setbDayDay(day);
+                girlfriend.setbDayMonth(month);
+                girlfriend.setbDayYear(year);
+                Toast.makeText(Create_Activity.this, "Birthday: "+ girlfriend.getbDayDay() +" "+ girlfriend.getbDayMonth() +" "+ girlfriend.getbDayYear(), Toast.LENGTH_SHORT).show();
+                break;
+
+            case TypeAnniversary:
+
+                girlfriend.setAnniversaryDay(day);
+                girlfriend.setAnniversaryMonth(month);
+                girlfriend.setAnniversaryYear(year);
+                Toast.makeText(Create_Activity.this, "Anniversary: "+ girlfriend.getAnniversaryDay() +" "+ girlfriend.getAnniversaryMonth() +" "+ girlfriend.getAnniversaryYear(), Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     public static int getTypeUserName() {

@@ -24,6 +24,8 @@ public class create_2 extends android.app.Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    private int birthdayYear;
     private int birthdayMonth;
     private int birthdayDay;
     DatePicker birthdayPicker;
@@ -74,12 +76,15 @@ public class create_2 extends android.app.Fragment {
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
+
+        birthdayYear = birthdayPicker.getYear();
         birthdayMonth = birthdayPicker.getMonth();
         birthdayDay = birthdayPicker.getDayOfMonth();
         birthdayPicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
 
             @Override
             public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                birthdayYear = birthdayPicker.getYear();
                 birthdayMonth = birthdayPicker.getMonth();
                 birthdayDay = birthdayPicker.getDayOfMonth();
             }
@@ -119,7 +124,7 @@ public class create_2 extends android.app.Fragment {
     public void onStop(){
         super.onStop();
 
-        activityCommunicator.sendDates(birthdayDay,birthdayMonth,cA.getTypeBirthday());
+        activityCommunicator.sendDates(birthdayDay,birthdayMonth,birthdayYear,cA.getTypeBirthday());
     }
 
 

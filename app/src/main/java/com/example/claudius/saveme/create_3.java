@@ -26,6 +26,7 @@ public class create_3 extends android.app.Fragment {
 
     private int anniversaryMonth;
     private int anniversaryDay;
+    private int anniversaryYear;
     DatePicker anniversaryPicker;
     View view;
 
@@ -72,12 +73,14 @@ public class create_3 extends android.app.Fragment {
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
+        anniversaryYear = anniversaryPicker.getYear();
         anniversaryMonth = anniversaryPicker.getMonth();
         anniversaryDay = anniversaryPicker.getDayOfMonth();
         anniversaryPicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
 
             @Override
             public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                anniversaryYear = anniversaryPicker.getYear();
                 anniversaryMonth = anniversaryPicker.getMonth();
                 anniversaryDay = anniversaryPicker.getDayOfMonth();
             }
@@ -115,7 +118,7 @@ public class create_3 extends android.app.Fragment {
     public void onStop(){
         super.onStop();
 
-        activityCommunicator.sendDates(anniversaryDay,anniversaryMonth,cA.getTypeAnniversary());
+        activityCommunicator.sendDates(anniversaryDay,anniversaryMonth,anniversaryYear,cA.getTypeAnniversary());
     }
 
 

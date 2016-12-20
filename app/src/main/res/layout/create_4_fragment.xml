@@ -117,8 +117,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
+        android:imeOptions="actionDone"
         android:id="@+id/favouriteKindOfFoodEditText"
-        android:onClick="leerlauf"/>
+        />
 
 </LinearLayout>
 

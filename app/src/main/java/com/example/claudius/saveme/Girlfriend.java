@@ -11,7 +11,12 @@ public class Girlfriend {
     private String favBand;
     private String favFlowers;
     private String favKindofFood;
-
+    private int bDayDay;
+    private int bDayMonth;
+    private int bDayYear;
+    private int anniversaryDay;
+    private int anniversaryMonth;
+    private int anniversaryYear;
 
     public String getFarbe() {
         return farbe;
@@ -52,5 +57,53 @@ public class Girlfriend {
 
     public void setFavKindofFood(String favKindofFood) {
         this.favKindofFood = favKindofFood;
+    }
+
+    public int getbDayDay() {
+        return bDayDay;
+    }
+
+    public void setbDayDay(int bDayDay) {
+        this.bDayDay = bDayDay;
+    }
+
+    public int getbDayMonth() {
+        return bDayMonth;
+    }
+
+    public void setbDayMonth(int bDayMonth) {
+        this.bDayMonth = bDayMonth;
+    }
+
+    public int getAnniversaryDay() {
+        return anniversaryDay;
+    }
+
+    public void setAnniversaryDay(int anniversaryDay) {
+        this.anniversaryDay = anniversaryDay;
+    }
+
+    public int getAnniversaryMonth() {
+        return anniversaryMonth;
+    }
+
+    public void setAnniversaryMonth(int anniversaryMonth) {
+        this.anniversaryMonth = anniversaryMonth;
+    }
+
+    public int getbDayYear() {
+        return bDayYear;
+    }
+
+    public void setbDayYear(int bDayYear) {
+        this.bDayYear = bDayYear;
+    }
+
+    public int getAnniversaryYear() {
+        return anniversaryYear;
+    }
+
+    public void setAnniversaryYear(int anniversaryYear) {
+        this.anniversaryYear = anniversaryYear;
     }
 }

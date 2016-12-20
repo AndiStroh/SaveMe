@@ -15,7 +15,7 @@ Klasse dient Hauptsächlich der Steuerung der Fragmente. Hat das Interface Activ
 Kommunizieren können.
  */
 
-public class Create_Activity extends AppCompatActivity implements create_1.OnFragmentInteractionListener, create_2.OnFragmentInteractionListener, create_3.OnFragmentInteractionListener, create_4.OnFragmentInteractionListener, ActivityCommunicator{
+public class Create_Activity extends AppCompatActivity implements OnFragmentInteractionListener, ActivityCommunicator{
 
     public static final int maxfragment = 4;
     public static final int minfragment = 1;

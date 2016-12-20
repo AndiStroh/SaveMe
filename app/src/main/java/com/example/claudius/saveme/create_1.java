@@ -17,15 +17,6 @@ import android.widget.ImageButton;
 
 import java.io.FileNotFoundException;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link create_1.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link create_1#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class create_1 extends android.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -167,10 +158,7 @@ public class create_1 extends android.app.Fragment {
         mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
 
     @Override
     public void onResume(){

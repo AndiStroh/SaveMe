@@ -1,23 +1,17 @@
 package com.example.claudius.saveme;
 
 import android.content.Context;
+import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link create_2.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link create_2#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class create_2 extends android.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +22,12 @@ public class create_2 extends android.app.Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private int birthdayMonth;
+    private int birthdayDay;
+    DatePicker birthdayPicker;
+    View view;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -67,7 +67,25 @@ public class create_2 extends android.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.create_2_fragment, container, false);
+        view = inflater.inflate(R.layout.create_2_fragment, container, false);
+
+        birthdayPicker = (DatePicker) view.findViewById(R.id.bDayPicker);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        birthdayMonth = birthdayPicker.getMonth();
+        birthdayDay = birthdayPicker.getDayOfMonth();
+        birthdayPicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+
+            @Override
+            public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                birthdayMonth = birthdayPicker.getMonth();
+                birthdayDay = birthdayPicker.getDayOfMonth();
+            }
+        });
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -97,18 +115,5 @@ public class create_2 extends android.app.Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
 }

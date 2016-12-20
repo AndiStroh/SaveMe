@@ -2,12 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.claudius.saveme.create_2"
-
+    tools:context="com.example.claudius.saveme.create_3"
     android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-
     <ProgressBar
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
@@ -17,16 +15,16 @@
         android:progress="2" />
 
     <TextView
-        android:text="Geburtstag der Angebeteten"
+        android:text="Jahrestag/Hochzeitstag"
         android:textColor="@color/allblack"
         android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
+        android:id="@+id/textView4" />
 
     <DatePicker
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/datePicker3" />
+        android:id="@+id/datePicker4" />
 
 </LinearLayout>

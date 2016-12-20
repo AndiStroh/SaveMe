@@ -15,7 +15,7 @@ Klasse dient Hauptsächlich der Steuerung der Fragmente. Hat das Interface Activ
 Kommunizieren können.
  */
 
-public class Create_Activity extends AppCompatActivity implements create_1.OnFragmentInteractionListener, create_2.OnFragmentInteractionListener, create_4.OnFragmentInteractionListener, ActivityCommunicator{
+public class Create_Activity extends AppCompatActivity implements create_1.OnFragmentInteractionListener, create_2.OnFragmentInteractionListener, create_3.OnFragmentInteractionListener, create_4.OnFragmentInteractionListener, ActivityCommunicator{
 
     public static final int maxfragment = 4;
     public static final int minfragment = 1;
@@ -100,11 +100,22 @@ public class Create_Activity extends AppCompatActivity implements create_1.OnFra
 
         }
 
+        if(counter == fragment3) {
+
+            FragmentManager manager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = manager.beginTransaction();
+            String tag = create_3.class.getSimpleName();
+            fragmentTransaction.replace(R.id.fragment_holder, new create_3(), tag);
+            fragmentTransaction.addToBackStack(tag);
+            fragmentTransaction.commit();
+
+        }
+
         if(counter == fragment4) {
 
             FragmentManager manager = getFragmentManager();
             FragmentTransaction fragmentTransaction = manager.beginTransaction();
-            String tag = create_2.class.getSimpleName();
+            String tag = create_4.class.getSimpleName();
             fragmentTransaction.replace(R.id.fragment_holder, new create_4(), tag);
             fragmentTransaction.addToBackStack(tag);
             fragmentTransaction.commit();

@@ -96,7 +96,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public Girlfriend  getGirlfriend(String name){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor aCursor = db.query(MY_GIRL, COLUMNS, " name = ?", null, null, null, null);
+        Cursor aCursor = db.query(MY_GIRL, COLUMNS, name, null, null, null, null);
         if(aCursor != null){
             aCursor.moveToFirst();
         }

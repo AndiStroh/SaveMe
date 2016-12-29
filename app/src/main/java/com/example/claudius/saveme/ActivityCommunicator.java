@@ -5,7 +5,7 @@ package com.example.claudius.saveme;
  */
 
 public interface ActivityCommunicator {
-    public void passStrings(String someValue, int type);
+    public void passStrJoKings(String someValue, int type);
 
     public void sendDates(int Day, int month, int year, int Type);
 }

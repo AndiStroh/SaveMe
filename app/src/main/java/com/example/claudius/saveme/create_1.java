@@ -28,17 +28,8 @@ public class create_1 extends android.app.Fragment {
     private ActivityCommunicator activityCommunicator;
     ImageButton imgbutton;
     Bitmap profilepic;
-    Girlfriend thegirlfriend;
-    EditText preNameTextBox;
     String prename;
     View view;
-
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-
 
     private OnFragmentInteractionListener mListener;
 

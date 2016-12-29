@@ -16,11 +16,6 @@
         android:max="5"
         android:progress="2" />
 
-    <DatePicker
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bDayPicker" />
-
     <TextView
         android:text="Geburtstag der Angebeteten"
         android:textColor="@color/allblack"
@@ -30,5 +25,10 @@
         android:id="@+id/textView3"
         android:textAlignment="center"
         android:textStyle="normal|bold" />
+
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bDayPicker" />
 
 </LinearLayout>

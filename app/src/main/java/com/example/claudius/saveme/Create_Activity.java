@@ -126,7 +126,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
         }
 
-        if(counter < 4){
+        if(counter > 4){
 
             Intent switchToInfo = new Intent(this, Show_Activity.class);
             startActivity(switchToInfo);

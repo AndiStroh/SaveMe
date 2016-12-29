@@ -19,12 +19,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     //Eigenschaften und Namen der Zeilen
     private static final String HER_NAME = "name";
-    private static String HER_BIRTHDAY_DAY = "1";
-    private static String HER_BIRTHDAY_MONTH = "1";
-    private static String HER_BIRTHDAY_YEAR = "2001";
-    private static String HER_ANNIVERSARY_DAY = "1";
-    private static String HER_ANNIVERSARY_MONTH = "1";
-    private static String HER_ANNIVERSARY_YEAR = "2001";
+    private static String HER_BIRTHDAY_DAY = "bdayday";
+    private static String HER_BIRTHDAY_MONTH = "bdaymonth";
+    private static String HER_BIRTHDAY_YEAR = "bdayyear";
+    private static String HER_ANNIVERSARY_DAY = "anniversaryday";
+    private static String HER_ANNIVERSARY_MONTH = "anniversarymonth";
+    private static String HER_ANNIVERSARY_YEAR = "anniversaryyear";
     private static String HER_COLOR = "color";
     private static String HER_BAND = "band";
     private static String HER_FLOWER = "flower";

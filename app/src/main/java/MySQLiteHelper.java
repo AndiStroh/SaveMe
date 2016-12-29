@@ -75,17 +75,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
-        values.put(HER_NAME, Girlfriend.getName());
-        values.put(HER_BIRTHDAY_DAY, Girlfriend.getbDayDay());
-        values.put(HER_BIRTHDAY_MONTH, Girlfriend.getbDayMonth());
-        values.put(HER_BIRTHDAY_YEAR, Girlfriend.getbDayYear());
-        values.put(HER_ANNIVERSARY_DAY, Girlfriend.getAnniversaryDay());
-        values.put(HER_ANNIVERSARY_MONTH, Girlfriend.getAnniversaryMonth());
-        values.put(HER_ANNIVERSARY_YEAR, Girlfriend.getAnniversaryYear());
-        values.put(HER_COLOR, Girlfriend.getColor());
-        values.put(HER_BAND, Girlfriend.getBand());
-        values.put(HER_FLOWER, Girlfriend.getFlowers());
-        values.put(HER_FOOD, Girlfriend.getFood());
+        values.put(HER_NAME, newGirl.getName());
+        values.put(HER_BIRTHDAY_DAY, newGirl.getbDayDay());
+        values.put(HER_BIRTHDAY_MONTH, newGirl.getbDayMonth());
+        values.put(HER_BIRTHDAY_YEAR, newGirl.getbDayYear());
+        values.put(HER_ANNIVERSARY_DAY, newGirl.getAnniversaryDay());
+        values.put(HER_ANNIVERSARY_MONTH, newGirl.getAnniversaryMonth());
+        values.put(HER_ANNIVERSARY_YEAR, newGirl.getAnniversaryYear());
+        values.put(HER_COLOR, newGirl.getColor());
+        values.put(HER_BAND, newGirl.getBand());
+        values.put(HER_FLOWER, newGirl.getFlowers());
+        values.put(HER_FOOD, newGirl.getFood());
 
         db.insert(MY_GIRL, null, values);
         db.close();

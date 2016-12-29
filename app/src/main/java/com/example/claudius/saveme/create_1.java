@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -172,7 +171,7 @@ public class create_1 extends android.app.Fragment {
     @Override
     public void onStop(){
         super.onStop();
-        activityCommunicator.passusername(prename,cA.getTypeUserName());
+        activityCommunicator.passStrings(prename,cA.getTypeUserName());
     }
 
 

@@ -1,18 +1,13 @@
 package com.example.claudius.saveme;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class create_4 extends android.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -140,7 +135,7 @@ public class create_4 extends android.app.Fragment {
     @Override
     public void onStop(){
         super.onStop();
-       // activityCommunicator.passusername(prename,TypePreName);
+       // activityCommunicator.passStrings(prename,TypePreName);
 
         String sendestring;
 
@@ -152,7 +147,7 @@ public class create_4 extends android.app.Fragment {
 
         sendestring = favouriteBand + "/" + favouriteflowers + "--" + favouriteKindOfFood;
 
-        activityCommunicator.passusername(sendestring,cA.getTypefavourites());
+        activityCommunicator.passStrings(sendestring,cA.getTypefavourites());
     }
 
 

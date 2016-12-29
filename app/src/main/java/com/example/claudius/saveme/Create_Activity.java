@@ -33,7 +33,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
     private int counter = 1;
 
-    private Girlfriend girlfriend = new Girlfriend(bDay);
+    private Girlfriend girlfriend = new Girlfriend();
     ImageButton buttonLoadImage;
 
     public Girlfriend getGirlfriend() {
@@ -82,8 +82,6 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
     public void loadnewFragment(){
 
-
-
         if(counter == fragment1) {
 
             FragmentManager manager = getFragmentManager();
@@ -130,7 +128,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
         if(counter < 4){
 
-            Intent switchToInfo = new Intent(this, ShowInformation.class);
+            Intent switchToInfo = new Intent(this, Show_Activity.class);
             startActivity(switchToInfo);
         }
 
@@ -142,7 +140,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
     }
 
     @Override
-    public void passusername(String someValue, int type){
+    public void passStrings(String someValue, int type){
         Toast.makeText(Create_Activity.this,someValue +" In Activity: "+ String.valueOf(type),Toast.LENGTH_SHORT).show();
 
         switch(type){
@@ -163,7 +161,6 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
                 girlfriend.setBand(band);
                 Toast.makeText(Create_Activity.this,"Band in GF: "+girlfriend.getBand(), Toast.LENGTH_SHORT).show();
 
-
                 String flowers = someValue.substring(ersterteiler+1,zweiterteiler);
 
                 girlfriend.setFlowers(flowers);
@@ -176,14 +173,10 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
                 Toast.makeText(Create_Activity.this,"Food in GF: "+ girlfriend.getFood(), Toast.LENGTH_SHORT).show();
 
-
                 break;
             default:
 
                 break;
-
-
-
         }
     }
 
@@ -227,7 +220,6 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
     }
 
     public void leerlauf(View view){
-
 
     }
 }

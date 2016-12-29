@@ -29,28 +29,28 @@ public class ButtonColorListener implements View.OnClickListener {
             case R.id.favouriteColorRedButton:
 
                 create4.favouriteColorRedButton.getBackground().setAlpha(150);
-                create_activity.getGirlfriend().setFarbe("RED");
+                create_activity.getGirlfriend().setColor("RED");
 
                 break;
 
             case R.id.favouriteColorGreenButton:
 
                 create4.favouriteColorGreenButton.getBackground().setAlpha(150);
-                create_activity.getGirlfriend().setFarbe("GREEN");
+                create_activity.getGirlfriend().setColor("GREEN");
                 break;
 
 
             case R.id.favouriteColorBlueButton:
 
                 create4.favouriteColorBlueButton.getBackground().setAlpha(150);
-                create_activity.getGirlfriend().setFarbe("BLUE");
+                create_activity.getGirlfriend().setColor("BLUE");
 
                 break;
 
             case R.id.favouriteColorYellowButton:
 
                 create4.favouriteColorYellowButton.getBackground().setAlpha(150);
-                create_activity.getGirlfriend().setFarbe("YELLOW");
+                create_activity.getGirlfriend().setColor("YELLOW");
                 break;
         }
     }

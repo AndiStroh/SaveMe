@@ -2,6 +2,7 @@ package com.example.claudius.saveme;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
     private int counter = 1;
 
-    private Girlfriend girlfriend = new Girlfriend();
+    private Girlfriend girlfriend = new Girlfriend(bDay);
     ImageButton buttonLoadImage;
 
     public Girlfriend getGirlfriend() {
@@ -127,6 +128,12 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
         }
 
+        if(counter < 4){
+
+            Intent switchToInfo = new Intent(this, ShowInformation.class);
+            startActivity(switchToInfo);
+        }
+
     }
 
     @Override
@@ -142,7 +149,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
             case TypeUserName:
 
-                girlfriend.setUsername(someValue);
+                girlfriend.setName(someValue);
 
                 break;
 
@@ -153,21 +160,21 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
                 String band = someValue.substring(0,ersterteiler);
 
-                girlfriend.setFavBand(band);
-                Toast.makeText(Create_Activity.this,"Band in GF: "+girlfriend.getFavBand(), Toast.LENGTH_SHORT).show();
+                girlfriend.setBand(band);
+                Toast.makeText(Create_Activity.this,"Band in GF: "+girlfriend.getBand(), Toast.LENGTH_SHORT).show();
 
 
                 String flowers = someValue.substring(ersterteiler+1,zweiterteiler);
 
-                girlfriend.setFavFlowers(flowers);
+                girlfriend.setFlowers(flowers);
 
-                Toast.makeText(Create_Activity.this,"Flowers in GF: "+girlfriend.getFavFlowers(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Create_Activity.this,"Flowers in GF: "+girlfriend.getFlowers(), Toast.LENGTH_SHORT).show();
 
                 String food = someValue.substring(zweiterteiler+2,someValue.length());
 
-                girlfriend.setFavKindofFood(food);
+                girlfriend.setFood(food);
 
-                Toast.makeText(Create_Activity.this,"Food in GF: "+ girlfriend.getFavKindofFood(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Create_Activity.this,"Food in GF: "+ girlfriend.getFood(), Toast.LENGTH_SHORT).show();
 
 
                 break;

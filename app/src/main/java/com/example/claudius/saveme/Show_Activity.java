@@ -6,8 +6,9 @@ import android.widget.Button;
 
 public class Show_Activity extends AppCompatActivity {
 
-    public static final int WEBVIEWTYPE = 6;
 
+    public static final int WEBVIEWTYPE = 6;
+    MySQLiteHelper sqlhelper;
     Girlfriend girlfriend = new Girlfriend();
     Button backtoOverview;
 

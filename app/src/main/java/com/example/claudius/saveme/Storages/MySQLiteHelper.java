@@ -135,7 +135,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
             newGirlfriend.setName(cursor.getString(0));
             newGirlfriend.setbDayDay(Integer.parseInt(cursor.getString(1)));
-            newGirlfriend.setbDayMonth(Integer.parseInt(cursor.getString(2)));
+            newGirlfriend.setbDayMonth(Integer.parseInt(cursor.getString(2))+1);
             newGirlfriend.setbDayYear(Integer.parseInt(cursor.getString(3)));
             newGirlfriend.setAnniversaryDay(Integer.parseInt(cursor.getString(4)));
             newGirlfriend.setAnniversaryMonth(Integer.parseInt(cursor.getString(5)));

@@ -162,7 +162,7 @@ public class result_fragment extends Fragment implements OnFragmentInteractionLi
             anniversaryview.setText(girlfriend.getAnniversaryDay() + "."+girlfriend.getAnniversaryMonth()+"."+girlfriend.getAnniversaryYear());
 
             //Hier erstellen wir einen String der das JahrestagsDatum beinhaltet.
-            String anniversaryDate =  String.valueOf(girlfriend.getAnniversaryDay()) + "/"+ String.valueOf(girlfriend.getAnniversaryMonth()+1) + "/" +String.valueOf(this_year);
+            String anniversaryDate =  String.valueOf(girlfriend.getAnniversaryDay()) + "/"+ String.valueOf(girlfriend.getAnniversaryMonth()) + "/" +String.valueOf(this_year);
 
 
             //Hier lassen wir die Funktion daysleft die Anzahl der Tage bis zum nächsten Jahrestag ausrechnen.
@@ -172,7 +172,7 @@ public class result_fragment extends Fragment implements OnFragmentInteractionLi
             //Jetzt holen wir uns den Textview der am Ende die Anzahl der Tage zum Jahrestag noch anzeigen soll.
 
             int daystoAnniversary = Integer.parseInt(daysleftAnniversary);
-            daystoAnniversary++;
+
             setColorandtext(daysleftAnniversaryfield,daystoAnniversary);
 
         //Gleicher ablauf für den Valentinstag nur das das Zieldatum hier statisch ist. (14.02.x)
@@ -192,7 +192,7 @@ public class result_fragment extends Fragment implements OnFragmentInteractionLi
         String daysleftValtagstring = daysleft(Valtagdatum);
         TextView daysleftValtagtextview = (TextView) view.findViewById(R.id.daysleftValTag);
         daysleftValtagtextview.setText(String.valueOf(year));
-        setColorandtext(daysleftValtagtextview,Integer.parseInt(daysleftValtagstring)+1);
+        setColorandtext(daysleftValtagtextview,Integer.parseInt(daysleftValtagstring));
 
 
 

@@ -123,7 +123,7 @@ public class create_3 extends android.app.Fragment {
     public void onStop(){
         super.onStop();
 
-        activityCommunicator.sendDates(anniversaryDay,anniversaryMonth,anniversaryYear,cA.getTypeAnniversary());
+        activityCommunicator.sendDates(anniversaryDay,anniversaryMonth+1,anniversaryYear,cA.getTypeAnniversary());
     }
 
 

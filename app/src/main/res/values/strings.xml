@@ -7,6 +7,18 @@
     <string name="backbutton">Zurück</string>
     <string name="prename">Vorname</string>
     <string name="preferredColor">Lieblingsfarbe</string>
+    <string name="residence">Wohnort</string>
+    <string name="birthdayGirlfriend">Geburtstag der angebeteten</string>
+    <string name="anniversary">Jahres-/Hochzeitstag</string>
+    <string name="favBand">Lieblingsband</string>
+    <string name="favFlowers">Lieblingsblumen</string>
+    <string name="favFood">Lieblingsessen</string>
+    <string name="birthday">Geburtstag:</string>
+
+    <string name="radioMusic">Musik</string>
+    <string name="radioFood">Essen</string>
+    <string name="radioClothing">Kleidung</string>
+    <string name="radioFlowers">Blumen</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.claudius.saveme.Login_activity">
+    tools:context="com.example.claudius.saveme.Login.Login_activity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -71,6 +71,22 @@
             android:ems="10"
             android:id="@+id/passworteingabefeld"
             android:onClick="passwortfertig"/>
+
+        <Button
+            android:text="Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginButton"
+            android:onClick="passwortfertig"/>
+
+        <Button
+            android:text="Freundin löschen / erneuern"
+            android:layout_marginTop="15dp"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteButton"
+            android:onClick="deleteGirlfriend"/>
+
     </LinearLayout>
 
 

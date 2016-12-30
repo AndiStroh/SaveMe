@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Login_activity"
+            android:name=".Login.Login_activity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -18,8 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Create_Activity" />
-        <activity android:name=".Show_Activity"></activity>
+        <activity android:name=".Create_stuff.Create_Activity" />
+        <activity android:name=".Result_Stuff.Show_Activity"></activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

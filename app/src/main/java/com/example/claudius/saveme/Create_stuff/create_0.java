@@ -1,38 +1,38 @@
-package com.example.claudius.saveme;
+package com.example.claudius.saveme.Create_stuff;
 
 import android.content.Context;
-import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.DatePicker;
+import android.widget.EditText;
+
+import com.example.claudius.saveme.Interfaces.ActivityCommunicator;
+import com.example.claudius.saveme.Interfaces.OnFragmentInteractionListener;
+import com.example.claudius.saveme.R;
 
 
-public class create_3 extends android.app.Fragment {
+//Fragment das die Felder für Benutzernamen und Passwort des Benutzers enthält
+public class create_0 extends android.app.Fragment implements OnFragmentInteractionListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private ActivityCommunicator activityCommunicator;
-
-    Create_Activity cA = (Create_Activity) getActivity();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private String username;
+    private String password;
+    private View view;
 
-    private int anniversaryMonth;
-    private int anniversaryDay;
-    private int anniversaryYear;
-    DatePicker anniversaryPicker;
-    View view;
-
+    private ActivityCommunicator activityCommunicator;
     private OnFragmentInteractionListener mListener;
 
-    public create_3() {
+    public create_0() {
         // Required empty public constructor
     }
 
@@ -42,11 +42,11 @@ public class create_3 extends android.app.Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment create_3.
+     * @return A new instance of fragment create_0.
      */
     // TODO: Rename and change types and number of parameters
-    public static create_3 newInstance(String param1, String param2) {
-        create_3 fragment = new create_3();
+    public static create_0 newInstance(String param1, String param2) {
+        create_0 fragment = new create_0();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,28 +63,43 @@ public class create_3 extends android.app.Fragment {
         }
     }
 
+
+    //Hier werden den Feldern Listenern verpasst und gesagt was diese machen sollen.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view =inflater.inflate(R.layout.create_3_fragment, container, false);
+        View view = inflater.inflate(R.layout.create_0_fragment, container, false);
 
-        anniversaryPicker = (DatePicker) view.findViewById(R.id.anniversarypicker);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        anniversaryYear = anniversaryPicker.getYear();
-        anniversaryMonth = anniversaryPicker.getMonth();
-        anniversaryDay = anniversaryPicker.getDayOfMonth();
-        anniversaryPicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+        final EditText usernameEditText = (EditText) view.findViewById(R.id.createUsernameField);
+        final EditText passwordEditText = (EditText) view.findViewById(R.id.createPasswordfield);
+
+        usernameEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
-            public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                anniversaryYear = anniversaryPicker.getYear();
-                anniversaryMonth = anniversaryPicker.getMonth();
-                anniversaryDay = anniversaryPicker.getDayOfMonth();
+            public void afterTextChanged(Editable s) {
+                username = usernameEditText.getText().toString();
             }
         });
+
+        passwordEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                password = passwordEditText.getText().toString();
+            }
+        });
+
+
+
         return view;
     }
 
@@ -104,9 +119,9 @@ public class create_3 extends android.app.Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-
         context = getActivity();
         activityCommunicator =(ActivityCommunicator)context;
+
     }
 
     @Override
@@ -115,13 +130,16 @@ public class create_3 extends android.app.Fragment {
         mListener = null;
     }
 
+    //Sobald sich das Fragment schliesst, werden die Daten an die Create Activity gesendet.
+
     public void onStop(){
         super.onStop();
+        activityCommunicator.passStrings(username+"/"+password,Create_Activity.TypePassword);
 
-        activityCommunicator.sendDates(anniversaryDay,anniversaryMonth,anniversaryYear,cA.getTypeAnniversary());
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
-
-
+    }
 }

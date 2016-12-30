@@ -1,4 +1,4 @@
-package com.example.claudius.saveme;
+package com.example.claudius.saveme.Create_stuff;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,13 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.example.claudius.saveme.Interfaces.ActivityCommunicator;
+import com.example.claudius.saveme.Interfaces.OnFragmentInteractionListener;
+import com.example.claudius.saveme.R;
+
 import java.io.FileNotFoundException;
 
+//Fragment welches dazu dient das man den Benutzernamen, den Wohnort und Ein Profilbild der Freundin hinzufügen kann.
 public class create_1 extends android.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,9 +33,8 @@ public class create_1 extends android.app.Fragment {
     private ActivityCommunicator activityCommunicator;
     ImageButton imgbutton;
     Bitmap profilepic;
-    Girlfriend thegirlfriend;
-    EditText preNameTextBox;
     String prename;
+    String residence;
     View view;
 
 
@@ -76,26 +80,38 @@ public class create_1 extends android.app.Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.create_1_fragment, container, false);
 
+        //ImageButton wird initialisiert
         imgbutton = (ImageButton) view.findViewById(R.id.picbutton);
+
+        //Textfeld + Listener für den Vornamen der Freundin
         final EditText edt =  (EditText) view.findViewById(R.id.NameGirlfriendEditText);
         edt.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override
             public void afterTextChanged(Editable s) {
                 prename = edt.getText().toString();
             }
         });
+        //Textfeld + Listener für den Wohnort der Freundin
+        final EditText ldt = (EditText) view.findViewById(R.id.WohnortGirlfriendEditText);
+        ldt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
+            @Override
+            public void afterTextChanged(Editable s) {
+                residence = ldt.getText().toString();
+            }
+        });
+
+        //Listener für den ImageButton
+        //Löst einen Intent aus welcher die Fotogalerie von Adnroid öffnet. Das Ergebnis davon wird in der onactivityResult verarbeitet.
         imgbutton.setOnClickListener(new ImageButton.OnClickListener() {
 
 
@@ -110,16 +126,18 @@ public class create_1 extends android.app.Fragment {
         return view;
     }
 
-
+    //Diese Funktion sorgt dafür dass das Bild welches in der Galerie ausgewählt wurde auf dem Button erscheint.
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
 
+        //Wenn alles of verlaufen ist geht er hier rein
         if (resultCode == getActivity().RESULT_OK){
             Uri targetUri = data.getData();
 
             try {
+                //Hier wird die Bitmap decodiert und als Bitmap profilepic gespeichert. Danach weist man dem Button sein Bild zu.
                 profilepic = BitmapFactory.decodeStream(getActivity().getContentResolver().openInputStream(targetUri));
                 imgbutton.setImageBitmap(profilepic);
             } catch (FileNotFoundException e) {
@@ -162,6 +180,7 @@ public class create_1 extends android.app.Fragment {
 
 
 
+    //Beim Starten und beim beenden des Fragments werden die werte an die Create Activity weitergegeben
     @Override
     public void onResume(){
         super.onResume();
@@ -171,7 +190,9 @@ public class create_1 extends android.app.Fragment {
     @Override
     public void onStop(){
         super.onStop();
-        activityCommunicator.passStrings(prename,cA.getTypeUserName());
+        activityCommunicator.passStrings(prename+"/"+residence,cA.getTypeUserName());
+        activityCommunicator.sendBitmap(profilepic);
+
     }
 
 

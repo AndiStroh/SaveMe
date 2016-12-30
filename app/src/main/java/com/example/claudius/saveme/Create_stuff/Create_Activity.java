@@ -1,40 +1,57 @@
-package com.example.claudius.saveme;
+package com.example.claudius.saveme.Create_stuff;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.claudius.saveme.Interfaces.ActivityCommunicator;
+import com.example.claudius.saveme.Storages.Girlfriend;
+import com.example.claudius.saveme.Storages.MySQLiteHelper;
+import com.example.claudius.saveme.Interfaces.OnFragmentInteractionListener;
+import com.example.claudius.saveme.R;
+import com.example.claudius.saveme.Result_Stuff.Show_Activity;
+import com.example.claudius.saveme.Storages.User;
+
 /*
-Klasse dient Hauptsächlich der Steuerung der Fragmente. Hat das Interface ActivityCommunicator welches dafür sorgt das die Klassen miteinander
+Klasse dient Hauptsächlich der Steuerung der Fragmente für den Freundin erstell Prozess. Hat das Interface ActivityCommunicator welches dafür sorgt das die Klassen miteinander
 Kommunizieren können.
  */
 
-public class Create_Activity extends AppCompatActivity implements OnFragmentInteractionListener, ActivityCommunicator{
+public class Create_Activity extends AppCompatActivity implements OnFragmentInteractionListener, ActivityCommunicator {
 
-    public static final int maxfragment = 4;
-    public static final int minfragment = 1;
+    //Enums für die Ganzen Fragmente
+    public static final int maxfragment = 5;
+    public static final int minfragment = 0;
 
+    public static final int fragment0 = 0;
     public static final int fragment1 = 1;
     public static final int fragment2 = 2;
     public static final int fragment3 = 3;
     public static final int fragment4 = 4;
+    public static final int createfertig = 5;
 
     public static final int TypeUserName = 1;
     public static final int TypeBirthday = 2;
     public static final int TypeAnniversary = 3;
     public static final int Typefavourites = 4;
+    public static final int TypePassword = 0;
 
-    private int counter = 1;
+    //Counter welches Fragment gerade aktiv ist.
+    private int counter = 0;
 
+    //Zwischenspeicher Freundin
     private Girlfriend girlfriend = new Girlfriend();
-    ImageButton buttonLoadImage;
+    //Zwiwchenspeicher Userinfos
+    User user = new User();
+    //Wird als einziges Fragment schonmal vorher geladen weil es Probleme mit dem Zwiwchenspeicher der Attribute gegeben hat.
+    create_4 c4 = new create_4();
 
     public Girlfriend getGirlfriend() {
         return girlfriend;
@@ -45,6 +62,8 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_activity);
 
+        //Weiter button beim Erstellungsprozess. Listener öffnet dann jeweils die loadnewfragment() Methode und verhindert gleichzeitig das der Counter
+        //zu nicht definierten werten kommt
         final Button incbutton;
         incbutton = (Button) findViewById(R.id.forwardbutton);
         loadnewFragment();
@@ -64,6 +83,8 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
             }
         });
 
+        //Zurück button beim Erstellungsprozess. Listener öffnet dann jeweils die loadnewfragment() Methode und verhindert gleichzeitig das der Counter
+        //zu nicht definierten werten kommt
         final Button decbutton;
         decbutton = (Button) findViewById(R.id.backbutton);
         decbutton.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +101,18 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
         });
     }
 
+    //lädt je nach counter das dem entsprechende Fragment in das Layout mit der id fragment_holder
     public void loadnewFragment(){
+
+        if(counter == fragment0) {
+
+            FragmentManager manager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = manager.beginTransaction();
+            String tag = create_0.class.getSimpleName();
+            fragmentTransaction.replace(R.id.fragment_holder,new create_0(),tag);
+            fragmentTransaction.addToBackStack(tag);
+            fragmentTransaction.commit();
+        }
 
         if(counter == fragment1) {
 
@@ -120,13 +152,24 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
             FragmentManager manager = getFragmentManager();
             FragmentTransaction fragmentTransaction = manager.beginTransaction();
             String tag = create_4.class.getSimpleName();
-            fragmentTransaction.replace(R.id.fragment_holder, new create_4(), tag);
+            fragmentTransaction.replace(R.id.fragment_holder, c4, tag);
             fragmentTransaction.addToBackStack(tag);
             fragmentTransaction.commit();
 
         }
 
-        if(counter > 4){
+        if(counter == createfertig){
+            //Submit Methode wird von hier aufgerufen weil es sonst Probleme mit dem schreiben in die Datenbank gab. (Es wurde einfach null eingetragen)
+            //weil geschrieben wurde obwohl die onStop Methode in create 4 noch nicht ausgeführt wurde.
+            c4.submit();
+            MySQLiteHelper sqhelper = new MySQLiteHelper(this.getBaseContext());
+            sqhelper.addGirl(girlfriend, user);
+
+            girlfriend.setName("Arsch");
+            girlfriend = sqhelper.getGirlfriend();
+
+
+            Toast.makeText(this, "Name in Database:"+girlfriend.getName(), Toast.LENGTH_SHORT).show();
 
             Intent switchToInfo = new Intent(this, Show_Activity.class);
             startActivity(switchToInfo);
@@ -139,6 +182,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
     }
 
+    //Fügt je nach Typ der empfangennen Nachricht die erhaltenen Werte in die Girlfriend Klasse ein
     @Override
     public void passStrings(String someValue, int type){
         Toast.makeText(Create_Activity.this,someValue +" In Activity: "+ String.valueOf(type),Toast.LENGTH_SHORT).show();
@@ -147,7 +191,12 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
             case TypeUserName:
 
-                girlfriend.setName(someValue);
+                int nameindex = someValue.indexOf("/");
+                String name = someValue.substring(0,nameindex);
+                String residence = someValue.substring(nameindex+1,someValue.length());
+                girlfriend.setName(name);
+                girlfriend.setResidence(residence);
+                Toast.makeText(Create_Activity.this,someValue +" Residence:"+residence+ String.valueOf(type),Toast.LENGTH_SHORT).show();
 
                 break;
 
@@ -172,6 +221,17 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
                 girlfriend.setFood(food);
 
                 Toast.makeText(Create_Activity.this,"Food in GF: "+ girlfriend.getFood(), Toast.LENGTH_SHORT).show();
+
+                break;
+
+            case TypePassword:
+
+                int index = someValue.indexOf("/");
+                String username = someValue.substring(0,index);
+                String passwort = someValue.substring(index+1,someValue.length());
+
+                user.setUsername(username);
+                user.setPassword(passwort);
 
                 break;
             default:
@@ -201,6 +261,12 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
                 Toast.makeText(Create_Activity.this, "Anniversary: "+ girlfriend.getAnniversaryDay() +" "+ girlfriend.getAnniversaryMonth() +" "+ girlfriend.getAnniversaryYear(), Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    @Override
+    public void sendBitmap(Bitmap bitmap){
+        Toast.makeText(Create_Activity.this, "Bitmap empfangen", Toast.LENGTH_SHORT).show();
+        girlfriend.setProfilePic(bitmap);
     }
 
     public static int getTypeUserName() {

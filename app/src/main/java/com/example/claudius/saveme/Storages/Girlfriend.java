@@ -1,4 +1,6 @@
-package com.example.claudius.saveme;
+package com.example.claudius.saveme.Storages;
+
+import android.graphics.Bitmap;
 
 import java.sql.Date;
 
@@ -6,9 +8,14 @@ import java.sql.Date;
  * Created by Claudius on 19.12.16.
  */
 
+
+//Dient als Speicher für die ganzen Daten der Freundin während der Laufzeit. Informationen werden jeweils beim beenden des Erstellungsprozesses und beim öffenen der App
+    //Frisch aus dem Speicher geladen oder geschrieben.
 public class Girlfriend {
 
-    private static String name;
+    private String name;
+    private String residence;
+    private Bitmap profilepic;
     private String color;
     private String band;
     private String flowers;
@@ -120,4 +127,19 @@ public class Girlfriend {
         this.anniversaryYear = anniversaryYear;
     }
 
+    public String getResidence() {
+        return residence;
+    }
+
+    public void setResidence(String residence) {
+        this.residence = residence;
+    }
+
+    public Bitmap getProfilePic() {
+        return profilepic;
+    }
+
+    public void setProfilePic(Bitmap profilepic) {
+        this.profilepic = profilepic;
+    }
 }

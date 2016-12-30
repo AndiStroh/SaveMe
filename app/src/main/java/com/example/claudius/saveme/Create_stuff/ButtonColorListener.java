@@ -1,12 +1,15 @@
-package com.example.claudius.saveme;
+package com.example.claudius.saveme.Create_stuff;
 
 import android.graphics.Color;
 import android.view.View;
+
+import com.example.claudius.saveme.R;
 
 /**
  * Created by Claudius on 20.12.16.
  */
 
+//Listener der der Create Activity mitteilt welcher Farb auswahl Button gedrückt wurde.
 public class ButtonColorListener implements View.OnClickListener {
 
 

@@ -11,9 +11,7 @@ import com.example.claudius.saveme.R;
 
 
 
-/**
- * Created by Claudius on 25.12.16.
- */
+
 
 
 //Listener der je nach gedrücktem Firmenbutton im giftfinder_tab die Firma der gewünschten Webseite an die Show_Activity sendet.

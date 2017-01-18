@@ -171,6 +171,31 @@ public class Girlfriend_Tab extends android.support.v4.app.Fragment implements O
         TextView showfavFood = (TextView) view.findViewById(R.id.favFoodInputLabel);
         showfavFood.setText(girlfriend.getFood());
 
+        TextView favColor = (TextView) view.findViewById(R.id.favColorShow);
+
+
+        switch (girlfriend.getColor()){
+
+            case "RED":
+                favColor.setText("rot");
+                favColor.setTextColor(Color.RED);
+                break;
+
+            case "GREEN":
+                favColor.setText("grün");
+                favColor.setTextColor(Color.GREEN);
+                break;
+
+            case "BLUE":
+                favColor.setText("blau");
+                favColor.setTextColor(Color.BLUE);
+                break;
+
+            case "YELLOW":
+                favColor.setText("gelb");
+                favColor.setTextColor(Color.YELLOW);
+                break;
+        }
 
         return view;
     }

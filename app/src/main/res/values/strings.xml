@@ -10,10 +10,11 @@
     <string name="residence">Wohnort</string>
     <string name="birthdayGirlfriend">Geburtstag der angebeteten</string>
     <string name="anniversary">Jahrestag</string>
-    <string name="favBand">Lieblingsband</string>
-    <string name="favFlowers">Lieblingsblumen</string>
-    <string name="favFood">Lieblingsessen</string>
+    <string name="favBand">Lieblingsband:</string>
+    <string name="favFlowers">Lieblingsblumen:</string>
+    <string name="favFood">Lieblingsessen:</string>
     <string name="birthday">Geburtstag:</string>
+    <string name="valentinesday">Valentinstag:</string>
 
     <string name="radioMusic">Musik</string>
     <string name="radioFood">Essen</string>

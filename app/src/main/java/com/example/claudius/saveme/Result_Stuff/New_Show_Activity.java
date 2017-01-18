@@ -27,7 +27,7 @@ public class New_Show_Activity extends AppCompatActivity implements Girlfriend_T
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Freundin"));
-        tabLayout.addTab(tabLayout.newTab().setText("Geschenk"));
+        tabLayout.addTab(tabLayout.newTab().setText("Geschenkesucher"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

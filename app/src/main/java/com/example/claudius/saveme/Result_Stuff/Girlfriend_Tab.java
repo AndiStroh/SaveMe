@@ -156,7 +156,7 @@ public class Girlfriend_Tab extends android.support.v4.app.Fragment implements O
         }
 
         //Hier wird der Valentienstag angezeigz
-        valTagview.setText(" 14.02."+String.valueOf(textViewJahr));
+        valTagview.setText(" 14.2."+String.valueOf(textViewJahr));
         String daysleftValtagstring = daysleft(Valtagdatum);
         TextView daysleftValtagtextview = (TextView) view.findViewById(R.id.DaysToValentines);
         daysleftValtagtextview.setText(String.valueOf(year));
@@ -262,19 +262,22 @@ public class Girlfriend_Tab extends android.support.v4.app.Fragment implements O
     //Diese Funktion sorgt dafür das die TextViews die die Anzahl der Tage zum B-Day oder Jahrestag anzeigen die richtige Farbe hat um den Nutzer zu warnen.
     public void setColorandtext(TextView field, int difference){
 
-        if (difference <= 10){
+        if (difference <= 10 && difference != 1 && difference != 0){
             field.setText("In "+ difference + " Tagen");
-            field.setBackgroundColor(Color.RED);
-            field.setTextColor(Color.WHITE);
+            field.setTextColor(Color.RED);
 
-        }else if(difference == 1){
-            field.setText("MORGEN!!!");
-            field.setBackgroundColor(Color.RED);
-            field.setTextColor(Color.WHITE);
+        }else if(difference == 1) {
+            field.setText("MORGEN");
+
+            field.setTextColor(Color.RED);
+        }else if(difference == 0){
+                field.setText("HEUTE");
+
+                field.setTextColor(Color.RED);
         }else{
             field.setText("In "+ difference + " Tagen");
-            field.setBackgroundColor(Color.GREEN);
-            field.setTextColor(Color.BLACK);
+
+            field.setTextColor(Color.GREEN);
         }
     }
 

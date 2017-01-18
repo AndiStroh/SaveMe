@@ -47,7 +47,7 @@
         android:layout_marginTop="15dp">
 
         <TextView
-            android:text="Geburtstag:"
+            android:text="@string/birthday"
             android:layout_height="wrap_content"
             android:id="@+id/BDayNameLabel"
             android:layout_weight="1"
@@ -82,7 +82,7 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:text="Jahrestag:"
+            android:text="@string/anniversary"
             android:layout_height="wrap_content"
             android:id="@+id/AnniversaryLabel"
             android:layout_weight="1"
@@ -117,7 +117,7 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:text="Valentinstag:"
+            android:text="@string/valentinesday"
             android:layout_height="wrap_content"
             android:id="@+id/ValentinesDayLabel"
             android:layout_weight="1"
@@ -152,7 +152,7 @@
         android:layout_marginTop="35dp">
 
         <TextView
-            android:text="Lieblingsband:"
+            android:text="@string/favBand"
             android:layout_height="wrap_content"
             android:id="@+id/FavbandLabel"
             android:layout_weight="1"
@@ -179,7 +179,7 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:text="Lieblingsblumen:"
+            android:text="@string/favFlowers"
             android:layout_height="wrap_content"
             android:id="@+id/FavFlowersLabel"
             android:layout_weight="1"
@@ -206,7 +206,7 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:text="Lieblingsband:"
+            android:text="@string/favFood"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:id="@+id/FavFoodLabel"

@@ -1,23 +1,30 @@
 package com.example.claudius.saveme.Result_Stuff;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.view.View;
 
+import com.example.claudius.saveme.Create_stuff.create_2;
+import com.example.claudius.saveme.Login.Login_activity;
 import com.example.claudius.saveme.R;
+
+
 
 /**
  * Created by Claudius on 25.12.16.
  */
 
 
-//Listener der je nach gedrücktem Firmenbutton im result_fragment die Firma der gewünschten Webseite an die Show_Activity sendet.
+//Listener der je nach gedrücktem Firmenbutton im giftfinder_tab die Firma der gewünschten Webseite an die Show_Activity sendet.
 public class Button_Webview_Listener implements View.OnClickListener {
 
-    private result_fragment result_fragment;
+    private Giftfinder_Tab giftfinder_fragment;
     private int sendetyp = 6;
 
-    public Button_Webview_Listener(result_fragment resfrag){
+    public Button_Webview_Listener(Giftfinder_Tab resfrag){
 
-        result_fragment = resfrag;
+        giftfinder_fragment = resfrag;
 
     }
 
@@ -31,37 +38,54 @@ public class Button_Webview_Listener implements View.OnClickListener {
             //Hier wird jeweils auf die Buttonid verglichen (ids sind immer integers deshalb kann man das so machen)
             case R.id.companyAmazon:
                 //Bei Amazon ist wieder die besonderheit das man die Kategorie zusätzlich wissen muss
-                result_fragment.sendButtonName("amazon"+String.valueOf(result_fragment.radioCategory));
+
+                Intent i = new Intent(giftfinder_fragment.getActivity(), Webview_Activity.class);
+                i.putExtra("company","amazon");
+                i.putExtra("cat",giftfinder_fragment.radioCategory);
+                giftfinder_fragment.getActivity().startActivity(i);
 
                 break;
 
             case R.id.companyZalando:
 
-                result_fragment.sendButtonName("zalando");
+                Intent j = new Intent(giftfinder_fragment.getActivity(), Webview_Activity.class);
+                j.putExtra("company","zalando");
+                j.putExtra("cat",giftfinder_fragment.radioCategory);
+                giftfinder_fragment.getActivity().startActivity(j);
 
                 break;
 
             case R.id.companyYelp:
 
-                result_fragment.sendButtonName("yelp");
+                Intent k = new Intent(giftfinder_fragment.getActivity(), Webview_Activity.class);
+                k.putExtra("company","yelp");
+                k.putExtra("cat",giftfinder_fragment.radioCategory);
+                giftfinder_fragment.getActivity().startActivity(k);
+
 
                 break;
 
-            case R.id.companyeventim:
+            case R.id.companyEventim:
 
-                result_fragment.sendButtonName("eventim");
-
+                Intent l = new Intent(giftfinder_fragment.getActivity(), Webview_Activity.class);
+                l.putExtra("company","eventim");
+                l.putExtra("cat",giftfinder_fragment.radioCategory);
+                giftfinder_fragment.getActivity().startActivity(l);
                 break;
 
             case R.id.companyHundM:
 
-                result_fragment.sendButtonName("hundm");
-
+                Intent m = new Intent(giftfinder_fragment.getActivity(), Webview_Activity.class);
+                m.putExtra("company","hundm");
+                m.putExtra("cat",giftfinder_fragment.radioCategory);
+                giftfinder_fragment.getActivity().startActivity(m);
                 break;
 
-            case R.id.companyBlumenfee:
-
-                result_fragment.sendButtonName("blumenfee");
+            case R.id.companyBlumenfeeDe:
+                Intent n = new Intent(giftfinder_fragment.getActivity(), Webview_Activity.class);
+                n.putExtra("company","blumenfee");
+                n.putExtra("cat",giftfinder_fragment.radioCategory);
+                giftfinder_fragment.getActivity().startActivity(n);
 
                 break;
 

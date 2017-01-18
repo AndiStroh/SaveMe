@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FileZilla_3.18.0_macosx-x86.app.tar.bz2.iml" filepath="$PROJECT_DIR$/FileZilla_3.18.0_macosx-x86.app.tar.bz2.iml" />
       <module fileurl="file://$PROJECT_DIR$/SaveMe.iml" filepath="$PROJECT_DIR$/SaveMe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SaveMe.iml" filepath="$PROJECT_DIR$/SaveMe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

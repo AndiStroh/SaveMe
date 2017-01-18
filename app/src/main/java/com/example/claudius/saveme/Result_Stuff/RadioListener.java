@@ -13,17 +13,17 @@ import com.example.claudius.saveme.R;
 
 public class RadioListener implements RadioGroup.OnCheckedChangeListener {
 
-    result_fragment result_fragment;
+    Giftfinder_Tab giftfinder_tab;
 
-    public RadioListener(result_fragment rF){
-        result_fragment = rF;
+    public RadioListener(Giftfinder_Tab rF){
+        giftfinder_tab = rF;
     }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-        View result_view = result_fragment.getView();
-        float notselectable = (float)0.5;
+        View result_view = giftfinder_tab.getView();
+        float notselectable = (float)0.2;
         float selectable = 1;
 
 
@@ -37,14 +37,14 @@ public class RadioListener implements RadioGroup.OnCheckedChangeListener {
         result_view.findViewById(R.id.companyYelp).setClickable(false);
         result_view.findViewById(R.id.companyYelp).setAlpha(notselectable);
 
-        result_view.findViewById(R.id.companyeventim).setClickable(false);
-        result_view.findViewById(R.id.companyeventim).setAlpha(notselectable);
+        result_view.findViewById(R.id.companyEventim).setClickable(false);
+        result_view.findViewById(R.id.companyEventim).setAlpha(notselectable);
 
         result_view.findViewById(R.id.companyHundM).setClickable(false);
         result_view.findViewById(R.id.companyHundM).setAlpha(notselectable);
 
-        result_view.findViewById(R.id.companyBlumenfee).setClickable(false);
-        result_view.findViewById(R.id.companyBlumenfee).setAlpha(notselectable);
+        result_view.findViewById(R.id.companyBlumenfeeDe).setClickable(false);
+        result_view.findViewById(R.id.companyBlumenfeeDe).setAlpha(notselectable);
 
 
 
@@ -54,9 +54,9 @@ public class RadioListener implements RadioGroup.OnCheckedChangeListener {
 
             case R.id.radioMusic:
 
-                result_view.findViewById(R.id.companyeventim).setClickable(true);
-                result_view.findViewById(R.id.companyeventim).setAlpha(selectable);
-                result_fragment.radioCategory = result_fragment.catMusic;
+                result_view.findViewById(R.id.companyEventim).setClickable(true);
+                result_view.findViewById(R.id.companyEventim).setAlpha(selectable);
+                giftfinder_tab.radioCategory = giftfinder_tab.catMusic;
 
 
                 break;
@@ -65,7 +65,7 @@ public class RadioListener implements RadioGroup.OnCheckedChangeListener {
 
                 result_view.findViewById(R.id.companyYelp).setClickable(true);
                 result_view.findViewById(R.id.companyYelp).setAlpha(selectable);
-                result_fragment.radioCategory = result_fragment.catFood;
+                giftfinder_tab.radioCategory = giftfinder_tab.catFood;
                 break;
 
             case R.id.radioClothes:
@@ -75,14 +75,15 @@ public class RadioListener implements RadioGroup.OnCheckedChangeListener {
 
                 result_view.findViewById(R.id.companyHundM).setClickable(true);
                 result_view.findViewById(R.id.companyHundM).setAlpha(selectable);
-                result_fragment.radioCategory = result_fragment.catClothing;
+                giftfinder_tab.radioCategory = giftfinder_tab.catClothing;
 
                 break;
 
             case R.id.radioFlowers:
 
-                result_view.findViewById(R.id.companyBlumenfee).setClickable(true);
-                result_view.findViewById(R.id.companyBlumenfee).setAlpha(selectable);
+                result_view.findViewById(R.id.companyBlumenfeeDe).setClickable(true);
+                result_view.findViewById(R.id.companyBlumenfeeDe).setAlpha(selectable);
+                giftfinder_tab.radioCategory = giftfinder_tab.catFlowers;
 
                 break;
 

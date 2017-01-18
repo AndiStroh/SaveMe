@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.claudius.saveme">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,8 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Create_stuff.Create_Activity" />
-        <activity android:name=".Result_Stuff.Show_Activity"></activity>
+        <activity android:name=".Result_Stuff.New_Show_Activity" />
+        <activity android:name=".Result_Stuff.Webview_Activity"></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.claudius.saveme.Result_Stuff.Giftfinder_Tab"
+    android:orientation ="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RadioGroup
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:id="@+id/radiocatGroup"
+
+        android:layout_marginLeft="10dp">
+
+        <RadioButton
+            android:text="@string/radioMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioMusic"
+            android:layout_weight="1.63"
+            android:textAlignment="textStart" />
+
+        <RadioButton
+            android:text="@string/radioFood"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:id="@+id/radioFood"
+            android:layout_weight="0.96" />
+
+        <RadioButton
+            android:text="@string/radioFlowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioFlowers"
+            android:layout_weight="0.85" />
+
+        <RadioButton
+            android:text="@string/radioClothing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioClothes"
+            android:layout_weight="0.58" />
+
+
+    </RadioGroup>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="140dp">
+
+        <Button
+            android:text="Amazon"
+            android:layout_width="wrap_content"
+            android:id="@+id/companyAmazon"
+            android:layout_weight="0.11"
+            android:layout_height="130dp"
+            android:textSize="18dp"
+            style="@style/Widget.AppCompat.Button.Small" />
+
+        <Button
+            android:text="Eventim"
+            android:layout_width="wrap_content"
+            android:id="@+id/companyEventim"
+            android:layout_weight="0.11"
+            android:layout_height="130dp"
+            android:textSize="18dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+        <Button
+            android:text="Yelp"
+            android:layout_width="wrap_content"
+            android:id="@+id/companyYelp"
+            android:layout_weight="0.11"
+            android:layout_height="130dp"
+            android:textSize="18sp" />
+
+        <Button
+            android:text="Zalando"
+            android:layout_width="wrap_content"
+            android:id="@+id/companyZalando"
+            android:layout_weight="0.09"
+            android:layout_height="130dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+
+        <Button
+            android:text="H und M"
+            android:layout_width="wrap_content"
+            android:id="@+id/companyHundM"
+            android:layout_weight="0.10"
+            android:layout_height="130dp"
+            android:textSize="18sp" />
+
+        <Button
+            android:text="Blumenfee.de"
+            android:id="@+id/companyBlumenfeeDe"
+            android:layout_weight="0.11"
+            android:layout_height="130dp"
+            android:textSize="18sp"
+            android:layout_width="92dp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -12,11 +12,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.claudius.saveme.Interfaces.ActivityCommunicator;
+import com.example.claudius.saveme.Result_Stuff.New_Show_Activity;
 import com.example.claudius.saveme.Storages.Girlfriend;
 import com.example.claudius.saveme.Storages.MySQLiteHelper;
 import com.example.claudius.saveme.Interfaces.OnFragmentInteractionListener;
 import com.example.claudius.saveme.R;
-import com.example.claudius.saveme.Result_Stuff.Show_Activity;
+
 import com.example.claudius.saveme.Storages.User;
 
 /*
@@ -165,13 +166,12 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
             MySQLiteHelper sqhelper = new MySQLiteHelper(this.getBaseContext());
             sqhelper.addGirl(girlfriend, user);
 
-            girlfriend.setName("Arsch");
             girlfriend = sqhelper.getGirlfriend();
 
 
-            Toast.makeText(this, "Name in Database:"+girlfriend.getName(), Toast.LENGTH_SHORT).show();
 
-            Intent switchToInfo = new Intent(this, Show_Activity.class);
+
+            Intent switchToInfo = new Intent(this, New_Show_Activity.class);
             startActivity(switchToInfo);
         }
 
@@ -196,7 +196,6 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
                 String residence = someValue.substring(nameindex+1,someValue.length());
                 girlfriend.setName(name);
                 girlfriend.setResidence(residence);
-                Toast.makeText(Create_Activity.this,someValue +" Residence:"+residence+ String.valueOf(type),Toast.LENGTH_SHORT).show();
 
                 break;
 
@@ -208,19 +207,18 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
                 String band = someValue.substring(0,ersterteiler);
 
                 girlfriend.setBand(band);
-                Toast.makeText(Create_Activity.this,"Band in GF: "+girlfriend.getBand(), Toast.LENGTH_SHORT).show();
+
 
                 String flowers = someValue.substring(ersterteiler+1,zweiterteiler);
 
                 girlfriend.setFlowers(flowers);
 
-                Toast.makeText(Create_Activity.this,"Flowers in GF: "+girlfriend.getFlowers(), Toast.LENGTH_SHORT).show();
+
 
                 String food = someValue.substring(zweiterteiler+2,someValue.length());
 
                 girlfriend.setFood(food);
 
-                Toast.makeText(Create_Activity.this,"Food in GF: "+ girlfriend.getFood(), Toast.LENGTH_SHORT).show();
 
                 break;
 
@@ -250,7 +248,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
                 girlfriend.setbDayDay(day);
                 girlfriend.setbDayMonth(month);
                 girlfriend.setbDayYear(year);
-                Toast.makeText(Create_Activity.this, "Birthday: "+ girlfriend.getbDayDay() +" "+ girlfriend.getbDayMonth() +" "+ girlfriend.getbDayYear(), Toast.LENGTH_SHORT).show();
+
                 break;
 
             case TypeAnniversary:
@@ -258,14 +256,12 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
                 girlfriend.setAnniversaryDay(day);
                 girlfriend.setAnniversaryMonth(month);
                 girlfriend.setAnniversaryYear(year);
-                Toast.makeText(Create_Activity.this, "Anniversary: "+ girlfriend.getAnniversaryDay() +" "+ girlfriend.getAnniversaryMonth() +" "+ girlfriend.getAnniversaryYear(), Toast.LENGTH_SHORT).show();
                 break;
         }
     }
 
     @Override
     public void sendBitmap(Bitmap bitmap){
-        Toast.makeText(Create_Activity.this, "Bitmap empfangen", Toast.LENGTH_SHORT).show();
         girlfriend.setProfilePic(bitmap);
     }
 

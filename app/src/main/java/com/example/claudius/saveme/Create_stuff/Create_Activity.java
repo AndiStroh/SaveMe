@@ -186,7 +186,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
     //Fügt je nach Typ der empfangennen Nachricht die erhaltenen Werte in die Girlfriend Klasse ein
     @Override
     public void passStrings(String someValue, int type){
-        Toast.makeText(Create_Activity.this,someValue +" In Activity: "+ String.valueOf(type),Toast.LENGTH_SHORT).show();
+
 
         switch(type){
 

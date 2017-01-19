@@ -7,9 +7,6 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.example.claudius.saveme.Result_Stuff.Giftfinder_Tab;
 import com.example.claudius.saveme.Result_Stuff.Girlfriend_Tab;
 
-/**
- * Created by Claudius on 17.01.17.
- */
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
 

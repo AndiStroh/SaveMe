@@ -1,8 +1,6 @@
 package com.example.claudius.saveme.Storages;
 
-/**
- * Created by Claudius on 29.12.16.
- */
+
 
 
 //Es macht Sinn für den user eine nue Klasse zu erstellen, sonst müssten wir Freundin und Nutzer vermischen

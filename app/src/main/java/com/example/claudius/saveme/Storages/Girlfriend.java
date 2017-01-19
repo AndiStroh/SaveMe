@@ -4,9 +4,7 @@ import android.graphics.Bitmap;
 
 import java.sql.Date;
 
-/**
- * Created by Claudius on 19.12.16.
- */
+
 
 
 //Dient als Speicher für die ganzen Daten der Freundin während der Laufzeit. Informationen werden jeweils beim beenden des Erstellungsprozesses und beim öffenen der App

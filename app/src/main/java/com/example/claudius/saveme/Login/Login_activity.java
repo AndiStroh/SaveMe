@@ -28,7 +28,6 @@ public class Login_activity extends AppCompatActivity {
         setContentView(R.layout.activity_login_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         sqlhelper = new MySQLiteHelper(getBaseContext());
 
         //Wenn die getGirlfriend Methode null zurück gibt dann gibt es keine gespeicherte Freundin -> Es wird direkt die Create_Activity aufgerufen.
@@ -37,13 +36,7 @@ public class Login_activity extends AppCompatActivity {
             Intent z = new Intent(this, Create_Activity.class);
             startActivity(z);
         }
-
-
-
     }
-
- 
-
 
     /*Methode wird bei onClick der Passwort Tastatur aufgerufen und checkt ob der Benutzername und das Paswort korrekt sind (macht sie indem sie
         in der SQL Klasse eine Methode aufruft.)
@@ -52,8 +45,6 @@ public class Login_activity extends AppCompatActivity {
      */
 
     public void passwortfertig(View view){
-
-
         EditText numpadpasswort  = (EditText) findViewById(R.id.passworteingabefeld);
         EditText nutzernameeingabefeld = (EditText) findViewById(R.id.nameeingabefeld);
 
@@ -61,48 +52,32 @@ public class Login_activity extends AppCompatActivity {
 
         String password = numpadpasswort.getText().toString();
 
-
         sqlhelper = new MySQLiteHelper(getBaseContext());
 
         //wenn die getGirlfriend Methode null zurück gibt dann gibt es keine gespeicherte Freundin -> Es wird direkt die Create_Activity aufgerufen.
         if (sqlhelper.getGirlfriend() != null) {
 
             if(sqlhelper.usernamecorrect(username,password)){
-
                 Intent x = new Intent(this, New_Show_Activity.class);
                 startActivity(x);
-
             }else{
-
                 Toast.makeText(Login_activity.this,"Eingabe fehlerhaft",Toast.LENGTH_SHORT).show();
             }
-
-
         } else {
-
             Intent z = new Intent(this, Create_Activity.class);
             startActivity(z);
         }
-
-
     }
 
     //Wird durch onClick auf dem Löschen Button aufgerufen, löscht einmal alles in der Tabele sodass Nutzer wieder Platz für eine neue Freundin hat.
     //um Ärger zu vermeiden hielt ich es für besser gleich die Möglichkeit zu geben den Benutzernamen und das Passwort ändern zu können.
     public void deleteGirlfriend(View view){
-
         sqlhelper = new MySQLiteHelper(getBaseContext());
         Girlfriend girlfriend = sqlhelper.getGirlfriend();
         sqlhelper.deleteGirl(girlfriend);
         Intent z = new Intent(this, Create_Activity.class);
         startActivity(z);
-
-
     }
-
-
-
-
-    }
+}
 
 

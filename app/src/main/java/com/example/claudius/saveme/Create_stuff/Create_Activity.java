@@ -104,9 +104,10 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
     //lädt je nach counter das dem entsprechende Fragment in das Layout mit der id fragment_holder
     public void loadnewFragment(){
-
+        Button backbutton = (Button) findViewById(R.id.backbutton);
         if(counter == fragment0) {
 
+            backbutton.setVisibility(View.INVISIBLE);
             FragmentManager manager = getFragmentManager();
             FragmentTransaction fragmentTransaction = manager.beginTransaction();
             String tag = create_0.class.getSimpleName();
@@ -116,7 +117,7 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
         }
 
         if(counter == fragment1) {
-
+            backbutton.setVisibility(View.VISIBLE);
             FragmentManager manager = getFragmentManager();
             FragmentTransaction fragmentTransaction = manager.beginTransaction();
             String tag = create_1.class.getSimpleName();

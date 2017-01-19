@@ -13,9 +13,6 @@ import com.example.claudius.saveme.Storages.User;
 
 import java.io.ByteArrayOutputStream;
 
-/**
- * Created by Andi on 20.12.16.
- */
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
 

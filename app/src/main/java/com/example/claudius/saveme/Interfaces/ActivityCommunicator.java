@@ -2,9 +2,7 @@ package com.example.claudius.saveme.Interfaces;
 
 import android.graphics.Bitmap;
 
-/**
- * Created by Claudius on 18.12.16.
- */
+
 
 //Interface das es ermöglicht nachrichten vom Fragment zu Activity zu senden.
 

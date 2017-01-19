@@ -5,9 +5,7 @@ import android.widget.RadioGroup;
 
 import com.example.claudius.saveme.R;
 
-/**
- * Created by Claudius on 25.12.16.
- */
+
 
 //Dieser Listener sorgt dafür das je nach ausgewählter Radio Button Kategorie nur die relevanten Buttons auswählbar sind. Die anderen werden transparent und nicht anklickbar
 

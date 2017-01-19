@@ -72,6 +72,7 @@ public class create_1 extends android.app.Fragment {
         }
 
 
+
     }
 
     @Override
@@ -82,6 +83,8 @@ public class create_1 extends android.app.Fragment {
 
         //ImageButton wird initialisiert
         imgbutton = (ImageButton) view.findViewById(R.id.picbutton);
+
+
 
         //Textfeld + Listener für den Vornamen der Freundin
         final EditText edt =  (EditText) view.findViewById(R.id.NameGirlfriendEditText);
@@ -107,7 +110,6 @@ public class create_1 extends android.app.Fragment {
                 residence = ldt.getText().toString();
             }
         });
-
         //Listener für den ImageButton
         //Löst einen Intent aus welcher die Fotogalerie von Adnroid öffnet. Das Ergebnis davon wird in der onactivityResult verarbeitet.
         imgbutton.setOnClickListener(new ImageButton.OnClickListener() {
@@ -130,12 +132,12 @@ public class create_1 extends android.app.Fragment {
         // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
 
-        //Wenn alles of verlaufen ist geht er hier rein
+        //Wenn alles ok verlaufen ist geht er hier rein
         if (resultCode == getActivity().RESULT_OK){
             Uri targetUri = data.getData();
 
             try {
-                //Hier wird die Bitmap decodiert und als Bitmap profilepic gespeichert. Danach weist man dem Button sein Bild zu.
+                //Hier wird die Bitmap decodiert und als Bitmap profilepic gespeichert.
                 profilepic = BitmapFactory.decodeStream(getActivity().getContentResolver().openInputStream(targetUri));
                 imgbutton.setImageBitmap(profilepic);
             } catch (FileNotFoundException e) {

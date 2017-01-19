@@ -3,6 +3,8 @@ package com.example.claudius.saveme.Create_stuff;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,6 +85,10 @@ public class create_4 extends android.app.Fragment {
         view = inflater.inflate(R.layout.create_4_fragment, container, false);
 
         //Hier werden die ids der Buttons geholt und den Buttons ein Listener zugewiesen der herausfindet welche Farbe ausgewälht wurde.
+
+
+
+
         favouriteColorRedButton = (Button) view.findViewById(R.id.favouriteColorRedButton);
         favouriteColorRedButton.setOnClickListener(new ButtonColorListener(this));
 
@@ -98,14 +104,40 @@ public class create_4 extends android.app.Fragment {
 
 
         //Hier werden die Werte auf den Attributfeldern ausgelesen und zugeteilt.
+
+
         favBand = (EditText) view.findViewById(R.id.favouriteBandEditText);
         favouriteBand = favBand.getText().toString();
+        favBand.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override
+            public void afterTextChanged(Editable s) {favouriteBand = favBand.getText().toString();}
+        });
 
         favFood = (EditText) view.findViewById(R.id.favouriteKindOfFoodEditText);
         favouriteKindOfFood = favFood.getText().toString();
+        favFood.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override
+            public void afterTextChanged(Editable s) {favouriteKindOfFood = favFood.getText().toString();}
+        });
 
         favFlowers = (EditText) view.findViewById(R.id.favouriteFlowerEditText);
         favouriteflowers = favFlowers.getText().toString();
+        favFlowers.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override
+            public void afterTextChanged(Editable s) {favouriteflowers = favFlowers.getText().toString();}
+        });
 
         return view;
     }
@@ -155,8 +187,6 @@ public class create_4 extends android.app.Fragment {
         favouriteBand = favBand.getText().toString();
         favouriteKindOfFood = favFood.getText().toString();
         favouriteflowers = favFlowers.getText().toString();
-
-
 
         sendestring = favouriteBand + "/" + favouriteflowers + "--" + favouriteKindOfFood;
 

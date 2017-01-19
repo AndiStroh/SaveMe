@@ -164,8 +164,6 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
             MySQLiteHelper sqhelper = new MySQLiteHelper(this.getBaseContext());
             sqhelper.addGirl(girlfriend, user);
 
-            girlfriend = sqhelper.getGirlfriend();
-
             Intent switchToInfo = new Intent(this, New_Show_Activity.class);
             startActivity(switchToInfo);
         }

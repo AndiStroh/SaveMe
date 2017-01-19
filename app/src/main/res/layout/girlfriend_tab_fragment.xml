@@ -55,7 +55,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:text="TextView"
+            android:text="BDayDate"
             android:layout_height="wrap_content"
             android:id="@+id/BDayDate"
             android:layout_weight="1"
@@ -64,7 +64,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:text="TextView"
+            android:text="DaysToBDay"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:id="@+id/DaysToBDay"
@@ -90,7 +90,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:text="TextView"
+            android:text="AnniversaryDate"
             android:layout_height="wrap_content"
             android:id="@+id/AnniversaryDate"
             android:layout_weight="1"
@@ -99,7 +99,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:text="TextView"
+            android:text="DaysToAnnivers"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:id="@+id/DaysToAnniversary"
@@ -125,7 +125,7 @@
             android:layout_width="105dp" />
 
         <TextView
-            android:text="TextView"
+            android:text="ValentinesDate"
             android:layout_height="wrap_content"
             android:id="@+id/ValentinesDate"
             android:layout_weight="1"
@@ -134,7 +134,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:text="TextView"
+            android:text="ValentinesDate"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:id="@+id/DaysToValentines"
@@ -160,7 +160,7 @@
             android:textColor="@color/allblack" />
 
         <TextView
-            android:text="TextView"
+            android:text="favBandInputLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/favBandInputLabel"
@@ -187,7 +187,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:text="TextView"
+            android:text="favFlowersInputLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/favFlowersInputLabel"
@@ -214,7 +214,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:text="TextView"
+            android:text="favFoodInputLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/favFoodInputLabel"
@@ -241,7 +241,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:text="TextView"
+            android:text="favColorShow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/favColorShow"

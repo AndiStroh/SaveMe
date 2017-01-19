@@ -244,9 +244,9 @@ public class Girlfriend_Tab extends android.support.v4.app.Fragment implements O
         void onFragmentInteraction(Uri uri);
     }
 
-    //Diese Methode rechnet die Anzahl der Tage von heute (dem Aktuellen Datum -> CurrentDate) zum FinalDate aus -> Final Date ist der Geburtstag oder Jahrestag der übergeben wird.
+    //Diese Methode rechnet die Anzahl der Tage von heute (dem Aktuellen Datum -> CurrentDate) zum FinalDate aus
+    // -> Final Date ist der Geburtstag oder Jahrestag der übergeben wird.
     public String daysleft(String FinalDate){
-
         String CurrentDate = String.valueOf(this_day) + "/"+ String.valueOf(this_month) + "/" +String.valueOf(this_year);
         Date date1 = null;
         Date date2 = null;
@@ -257,34 +257,26 @@ public class Girlfriend_Tab extends android.support.v4.app.Fragment implements O
         //Jetzt wird der String auf das oben erstellte Datenformat geparst
         try {
             date1 = dates.parse(CurrentDate);
-
-
             date2 = dates.parse(FinalDate);
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
         //Mit get Time holt man sich die Millisekunden. Diese werden dann einfach subtrahiert
         long difference = Math.abs(date1.getTime() - date2.getTime());
 
-        /*Jetzt muss man das ganze noch auf Tage umrechnen also von
-          Millisec -> Sek -> Minuten -> Stunden -> Tage
-         */
-
         long differenceDates = difference / (24 * 60 * 60 * 1000);
         if(date2.before(date1)){
-
             differenceDates = 365 - differenceDates;
-
         }
-
-        //Am Ende übergeben wir es direkt als String sodass wir es nurnoch in das für die Ausgabe gewählte Art einsetzen müssen. (Toast, Textview etc.)
+        //Am Ende übergeben wir es direkt als String sodass wir es nurnoch in das für die Ausgabe
+        // gewählte Art einsetzen müssen. (Toast, Textview etc.)
         return Long.toString(differenceDates);
     }
 
 
-    //Diese Funktion sorgt dafür das die TextViews die die Anzahl der Tage zum B-Day oder Jahrestag anzeigen die richtige Farbe hat um den Nutzer zu warnen.
+    //Diese Funktion sorgt dafür das die TextViews die die Anzahl der Tage zum B-Day
+    // oder Jahrestag anzeigen die richtige Farbe hat um den Nutzer zu warnen.
     public void setColorandtext(TextView field, int difference){
 
         if (difference <= 10 && difference != 1 && difference != 0){

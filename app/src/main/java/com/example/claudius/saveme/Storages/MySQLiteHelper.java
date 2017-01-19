@@ -90,7 +90,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
-
         Bitmap bitmap = newGirl.getProfilePic();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 0, stream);
@@ -117,14 +116,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
 
     public Girlfriend  getGirlfriend(){
-        /*SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor aCursor = db.query(MY_GIRL, COLUMNS, name, null, null, null, null);
-        if(aCursor != null){
-            aCursor.moveToFirst();
-        }
-        */
-
 
         Girlfriend newGirlfriend = new Girlfriend();
         String query = "SELECT * FROM " + MY_GIRL;
@@ -165,28 +156,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         }
         return profilepic;
     }
-
-
-    public int updateGirlfriend(Girlfriend myGirlfriend){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        //values.put(HER_NAME, myGirlfriend.getName());
-        values.put(HER_BIRTHDAY_DAY, String.valueOf(myGirlfriend.getbDayDay()));
-        values.put(HER_BIRTHDAY_MONTH, String.valueOf(myGirlfriend.getbDayMonth()));
-        values.put(HER_BIRTHDAY_YEAR, String.valueOf(myGirlfriend.getbDayYear()));
-        values.put(HER_ANNIVERSARY_DAY, String.valueOf(myGirlfriend.getAnniversaryDay()));
-        values.put(HER_ANNIVERSARY_MONTH, String.valueOf(myGirlfriend.getAnniversaryMonth()));
-        values.put(HER_ANNIVERSARY_YEAR, String.valueOf(myGirlfriend.getAnniversaryYear()));
-        values.put(HER_COLOR, myGirlfriend.getColor());
-        values.put(HER_BAND, myGirlfriend.getBand());
-        values.put(HER_FLOWER, myGirlfriend.getFlowers());
-        values.put(HER_FOOD, myGirlfriend.getFood());
-
-        int i = db.update(MY_GIRL, values, HER_NAME + " = ?", new String[]{String.valueOf(myGirlfriend.getName())});
-        db.close();
-        return i;
-    }
-
+    
     public void deleteGirl(Girlfriend goneGirlfriend){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(MY_GIRL, HER_NAME + " = ?", new String[]{String.valueOf(goneGirlfriend.getName())});

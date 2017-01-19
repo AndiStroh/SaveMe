@@ -27,7 +27,7 @@ public class RadioListener implements RadioGroup.OnCheckedChangeListener {
         float selectable = 1;
 
 
-//Amazon hat alles was wir bisher als Kategoreie anbieten deshalb taucht es hier nicht auf
+        //Amazon hat alles was wir bisher als Kategoreie anbieten deshalb taucht es hier nicht auf
 
         //Zu Beginn werden alle Buttons nicht klickbar und zudem auf dem Alphawert 0,5 gesetzt
         // -> mit Alpha kann man Buttons transparent schalten 1 -> sichtbar, 0 -> komplett transparent
@@ -48,7 +48,8 @@ public class RadioListener implements RadioGroup.OnCheckedChangeListener {
 
 
 
-        //Je nachdem welcher Button ausgewählt wurde wird hier über die button id bestimmt um welchen Button es sich handelt und die entrsprechenden Buttons auswählbar und
+        //Je nachdem welcher Button ausgewählt wurde wird hier über die button id bestimmt
+        // um welchen Button es sich handelt und die entrsprechenden Buttons auswählbar und
         //voll sichtbar gemacht.
         switch (checkedId){
 
@@ -86,10 +87,6 @@ public class RadioListener implements RadioGroup.OnCheckedChangeListener {
                 giftfinder_tab.radioCategory = giftfinder_tab.catFlowers;
 
                 break;
-
-
-
-
         }
     }
 }

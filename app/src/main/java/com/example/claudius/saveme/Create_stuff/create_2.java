@@ -76,7 +76,6 @@ public class create_2 extends android.app.Fragment {
         view = inflater.inflate(R.layout.create_2_fragment, container, false);
 
         birthdayPicker = (DatePicker) view.findViewById(R.id.bDayPicker);
-
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         //DatePicker wird initialisert mit dem heutigen Datum und die variablen + Listener werden zugeordnet.

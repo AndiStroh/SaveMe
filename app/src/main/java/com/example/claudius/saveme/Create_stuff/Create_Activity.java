@@ -63,8 +63,6 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_activity);
 
-        //Weiter button beim Erstellungsprozess. Listener öffnet dann jeweils die loadnewfragment() Methode und verhindert gleichzeitig das der Counter
-        //zu nicht definierten werten kommt
         final Button incbutton;
         incbutton = (Button) findViewById(R.id.forwardbutton);
         loadnewFragment();
@@ -73,8 +71,6 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
             public void onClick(View v) {
                 counter++;
                 if(counter <= maxfragment){
-
-
                     loadnewFragment();
                 }else{
                     counter--;
@@ -86,6 +82,8 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
         //Zurück button beim Erstellungsprozess. Listener öffnet dann jeweils die loadnewfragment() Methode und verhindert gleichzeitig das der Counter
         //zu nicht definierten werten kommt
+
+
         final Button decbutton;
         decbutton = (Button) findViewById(R.id.backbutton);
         decbutton.setOnClickListener(new View.OnClickListener() {
@@ -161,16 +159,12 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
         }
 
         if(counter == createfertig){
-            //Submit Methode wird von hier aufgerufen weil es sonst Probleme mit dem schreiben in die Datenbank gab. (Es wurde einfach null eingetragen)
-            //weil geschrieben wurde obwohl die onStop Methode in create 4 noch nicht ausgeführt wurde.
+
             c4.submit();
             MySQLiteHelper sqhelper = new MySQLiteHelper(this.getBaseContext());
             sqhelper.addGirl(girlfriend, user);
 
             girlfriend = sqhelper.getGirlfriend();
-
-
-
 
             Intent switchToInfo = new Intent(this, New_Show_Activity.class);
             startActivity(switchToInfo);
@@ -184,10 +178,9 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
     }
 
     //Fügt je nach Typ der empfangennen Nachricht die erhaltenen Werte in die Girlfriend Klasse ein
+
     @Override
     public void passStrings(String someValue, int type){
-
-
         switch(type){
 
             case TypeUserName:
@@ -206,20 +199,11 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
                 int zweiterteiler =  someValue.indexOf("--");
 
                 String band = someValue.substring(0,ersterteiler);
-
                 girlfriend.setBand(band);
-
-
                 String flowers = someValue.substring(ersterteiler+1,zweiterteiler);
-
                 girlfriend.setFlowers(flowers);
-
-
-
                 String food = someValue.substring(zweiterteiler+2,someValue.length());
-
                 girlfriend.setFood(food);
-
 
                 break;
 
@@ -234,7 +218,6 @@ public class Create_Activity extends AppCompatActivity implements OnFragmentInte
 
                 break;
             default:
-
                 break;
         }
     }

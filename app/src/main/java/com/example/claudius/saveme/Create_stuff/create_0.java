@@ -65,6 +65,8 @@ public class create_0 extends android.app.Fragment implements OnFragmentInteract
 
 
     //Hier werden den Feldern Listenern verpasst und gesagt was diese machen sollen.
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

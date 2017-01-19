@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/progressBar"
         android:max="5"
-        android:progress="1" />
+        android:progress="2" />
 
     <ImageButton
         android:layout_width="100dp"

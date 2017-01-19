@@ -30,8 +30,6 @@ public class Login_activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         sqlhelper = new MySQLiteHelper(getBaseContext());
 
-        //Wenn die getGirlfriend Methode null zurück gibt dann gibt es keine gespeicherte Freundin -> Es wird direkt die Create_Activity aufgerufen.
-        //Login würde keinen Sinn machen da es nur ein Konto geben kann wenn es eine Freundin gibt.
         if (sqlhelper.getGirlfriend() == null) {
             Intent z = new Intent(this, Create_Activity.class);
             startActivity(z);
@@ -54,7 +52,9 @@ public class Login_activity extends AppCompatActivity {
 
         sqlhelper = new MySQLiteHelper(getBaseContext());
 
-        //wenn die getGirlfriend Methode null zurück gibt dann gibt es keine gespeicherte Freundin -> Es wird direkt die Create_Activity aufgerufen.
+        //wenn die getGirlfriend Methode null zurück gibt
+        // dann gibt es keine gespeicherte Freundin
+        // -> Es wird direkt die Create_Activity aufgerufen.
         if (sqlhelper.getGirlfriend() != null) {
 
             if(sqlhelper.usernamecorrect(username,password)){
@@ -71,6 +71,7 @@ public class Login_activity extends AppCompatActivity {
 
     //Wird durch onClick auf dem Löschen Button aufgerufen, löscht einmal alles in der Tabele sodass Nutzer wieder Platz für eine neue Freundin hat.
     //um Ärger zu vermeiden hielt ich es für besser gleich die Möglichkeit zu geben den Benutzernamen und das Passwort ändern zu können.
+
     public void deleteGirlfriend(View view){
         sqlhelper = new MySQLiteHelper(getBaseContext());
         Girlfriend girlfriend = sqlhelper.getGirlfriend();
